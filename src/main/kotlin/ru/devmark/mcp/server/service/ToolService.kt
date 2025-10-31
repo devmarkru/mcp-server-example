@@ -1,17 +1,20 @@
 package ru.devmark.mcp.server.service
 
+import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.ai.tool.annotation.Tool
 import org.springframework.ai.tool.annotation.ToolParam
 import org.springframework.stereotype.Service
 import java.math.BigDecimal
 import java.time.LocalDateTime
 
+private val logger = KotlinLogging.logger {}
+
 @Service
 class ToolService {
     @Tool(description = "Получить текущую дату и время.")
     fun getTime(): LocalDateTime {
         val now = LocalDateTime.now().withHour(10)
-        println("Now: $now")
+        logger.info { "Now: $now" }
         return now
     }
 
@@ -24,13 +27,13 @@ class ToolService {
     ): String {
         // логика создания напоминания
         val message = "Напоминание с текстом '$description' сработает $dateTime."
-        println(message)
+        logger.info { "Message text: $message" }
         return message
     }
 
     @Tool(description = "Получить цены на хлеб в разных магазинах.")
     fun getBreadPrices(): Map<String, BigDecimal> {
-        println("Получение цен на хлеб в разных магазинах.")
+        logger.info { "Getting prices for bread in various stores." }
         return mapOf(
             "Лента" to BigDecimal("60.00"),
             "Пятёрочка" to BigDecimal("50.00"),
