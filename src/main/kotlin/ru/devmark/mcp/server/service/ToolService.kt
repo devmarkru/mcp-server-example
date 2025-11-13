@@ -13,7 +13,7 @@ private val logger = KotlinLogging.logger {}
 class ToolService {
     @Tool(description = "Получить текущую дату и время.")
     fun getTime(): LocalDateTime {
-        val now = LocalDateTime.now().withHour(10)
+        val now = LocalDateTime.now()
         logger.info { "Now: $now" }
         return now
     }
