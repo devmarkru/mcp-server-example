@@ -1,6 +1,8 @@
 # mcp-server-example
 
-Пример MCP (**model context protocol**) сервера на **Spring AI**. Запускается на порту `8081`, но это можно переопределить в `application.yml`.
+Пример MCP (**model context protocol**) сервера на **Spring AI** с транспортом `streamable HTTP`.
+
+По умолчанию сервер запускается на порту `8081`, а MCP-эндпоинт доступен по пути `http://localhost:8081/mcp`. Это можно переопределить в `application.yml`.
 
 Сервис содержит `Dockerfile` и полностью готов к деплою в облаке.
 

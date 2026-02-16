@@ -4,3 +4,9 @@ server:
 spring:
   application:
     name: mcp-server-example
+  ai:
+    mcp:
+      server:
+        protocol: streamable
+        streamable-http:
+          mcp-endpoint: /mcp
